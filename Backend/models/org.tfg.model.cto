@@ -1,0 +1,181 @@
+namespace org.tfg.model
+
+import org.tfg.base.Address
+import org.tfg.base.CreditCard
+import org.tfg.base.BankAccount
+import org.tfg.base.User
+import org.tfg.base.Company
+import org.tfg.base.CarrierInfo
+import org.tfg.base.productStatus
+import org.tfg.base.offerStatus
+import org.tfg.base.orderStatus
+
+/**------------------------------------------------------------------------------------------
+                            Participants
+ ------------------------------------------------------------------------------------------*/
+
+participant UserParticipant extends User {
+    o Address address optional
+    o CreditCard card optional
+    o BankAccount account optional
+    --> Product [] products  //Ids de los productos del usuario
+    --> ClientOrder [] clientOrders //Pedidos del o hacia el usuario
+    --> Offer [] offers //Ofertas realizadas o recibidas
+}
+
+participant DistributorParticipant extends Company{
+}
+
+participant CarrierParticipant extends CarrierInfo{
+}
+
+
+/**------------------------------------------------------------------------------------------
+                            Assets
+ ------------------------------------------------------------------------------------------*/
+asset HeadQuarter identified by headquarterId{
+  --> DistributorParticipant distributor
+  o String headquarterId
+  o String headquarterName
+  o Address address
+  --> Carrier [] carriers //Transportistas de la sede
+}
+
+asset Carrier identified by carrierId{
+  --> CarrierParticipant carrier
+  --> HeadQuarter headquarter
+  o String carrierId
+  o String name
+  o String surname
+  --> CarrierOrder [] carrierOrders
+}
+
+asset Product identified by productId{
+  o String productId
+  --> UserParticipant owner
+  o productStatus status
+  o String name
+  o String description
+  o Double amount
+  o DateTime uploadDate
+  //Fotos en firebase
+}
+
+asset Offer identified by offerId{
+  o String offerId
+  --> Product product
+  --> UserParticipant buyer
+  o Double amount
+  o offerStatus status
+  o DateTime offerDate
+}
+
+asset ClientOrder identified by clientOrderId{
+  o String clientOrderId
+  --> Product product
+  --> Offer offer
+  o orderStatus status
+}
+
+asset CarrierOrder identified by carrierOrderId{
+  o String carrierOrderId
+  --> HeadQuarter headquarter
+  --> Carrier carrier
+  --> ClientOrder clientOrder
+  --> UserParticipant seller
+  --> UserParticipant buyer
+}
+
+/**------------------------------------------------------------------------------------------
+                            Transactions
+ ------------------------------------------------------------------------------------------*/
+transaction SetupDemo{
+  //Create companys, headquarters and carriers
+    o String companyId
+    o String companyName
+
+    o String carrierId
+    o String name
+    o String surname
+
+}
+
+transaction AssignCarriers{
+  --> Company company
+}
+transaction CreateUser{
+    o String userId
+    o String name
+    o String surname
+    o String email
+    o String password
+    o String numberPhone optional
+    o Address address optional
+    o CreditCard card optional
+    o BankAccount account optional
+    --> Product [] products  //Ids de los productos del usuario
+    --> ClientOrder [] clientOrders //Pedidos del o hacia el usuario
+    --> Offer [] offers //Ofertas realizadas o recibidas
+
+}
+
+transaction Login{
+	  --> UserParticipant user
+}
+
+
+transaction addCreditCard{
+    --> UserParticipant user
+    o String owner
+    o String cardNumber
+    o String expiryDate
+    o String cvv
+}
+transaction addBankAccount{
+    --> UserParticipant owner
+    o String accountNumber
+}
+transaction addAddress{
+    --> UserParticipant user
+    o String city
+    o String country
+    o String street
+    o String zip optional
+    o Double latitude
+    o Double longitude
+}
+transaction uploadProduct{
+    --> UserParticipant owner
+    o String productId
+    o productStatus status
+    o String name
+    o String description
+    o Double amount
+    o DateTime uploadDate
+    //Fotos en firebase
+
+}
+transaction updateProduct{
+    --> Product product
+    o String name
+    o String description
+    o Double amount
+}
+transaction acceptOffer{
+  --> Offer offer
+//Create orders
+}
+transaction rejectOffer{
+  --> Offer offer
+
+}
+transaction pickUpProduct{
+  --> CarrierOrder carrierOrder
+}
+transaction deliverProduct{
+  --> CarrierOrder carrierOrder
+}
+
+/**------------------------------------------------------------------------------------------
+                            Events
+ ------------------------------------------------------------------------------------------*/

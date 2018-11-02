@@ -1,0 +1,69 @@
+namespace org.tfg.base
+
+/**------------------------------------------------------------------------------------------
+                            Concepts
+ ------------------------------------------------------------------------------------------*/
+concept Address{
+  o String city
+  o String country
+  o String street
+  o String zip optional
+  o Double latitude
+  o Double longitude
+}
+
+concept CreditCard{
+    o String owner
+    o String cardNumber
+    o String expiryDate
+    o String cvv
+}
+
+concept BankAccount{
+    o String owner
+    o String accountNumber
+}
+
+/**------------------------------------------------------------------------------------------
+                            Abstract
+ ------------------------------------------------------------------------------------------*/
+abstract participant User identified by userId {
+  o String userId
+  o String name
+  o String surname
+  o String email
+  o String password
+  o String numberPhone optional
+}
+
+abstract participant Company identified by companyId {
+  o String companyId
+  o String companyName
+}
+
+abstract participant CarrierInfo identified by carrierId{
+  o String carrierId
+  o String name
+  o String surname
+}
+
+
+/**------------------------------------------------------------------------------------------
+                            Enums
+ ------------------------------------------------------------------------------------------*/
+enum productStatus{
+  o CREATED //New product
+  o SOLD //Product sold
+}
+
+enum offerStatus{
+  o DONE
+  o ACCEPTED
+  o REJECTED
+}
+
+enum orderStatus{
+  o WAITING
+  o ONTHEWAY //Product picked up by the carrier
+  o RECEIVED //Product received by the buyer
+}
