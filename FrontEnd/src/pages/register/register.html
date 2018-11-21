@@ -1,0 +1,38 @@
+<ion-content padding *ngIf="step == undefined">
+  <ion-row style="margin-bottom: 5%">
+    <ion-col col-1 style="align-self: center" (click)="back()">
+      <ion-icon name="ios-arrow-back" style="color: white; font-size: 30px"></ion-icon>
+    </ion-col>
+    <ion-col col-10>
+      <p class="title">Registro</p>
+    </ion-col>
+  </ion-row>
+  <ion-grid>
+    <ion-input placeholder="Email"></ion-input>
+    <ion-input placeholder="Contraseña"></ion-input>
+    <ion-input placeholder="Repetir Contraseña"></ion-input>
+    <ion-input placeholder="Nombre"></ion-input>
+    <ion-input placeholder="Apellidos"></ion-input>
+    <ion-input placeholder="Teléfono"></ion-input>
+  </ion-grid>
+
+  <ion-fab bottom right style="padding: 5%" (click)="next()">
+    <ion-icon style="font-size: 40px; background-color: rgb(2, 179, 81)" ion-fab name="ios-arrow-forward"></ion-icon>
+  </ion-fab>
+</ion-content>
+
+<ion-content padding *ngIf="step == 2">
+  <ion-row style="margin-bottom: 5%">
+    <ion-col col-1 style="align-self: center" (click)="back()">
+      <ion-icon name="ios-arrow-back" style="color: white; font-size: 30px"></ion-icon>
+    </ion-col>
+    <ion-col col-10>
+      <p class="title">Información para envíos</p>
+    </ion-col>
+  </ion-row>
+  <ion-grid>
+    <ion-input placeholder="Dirección"></ion-input>
+
+  </ion-grid>
+
+</ion-content>
