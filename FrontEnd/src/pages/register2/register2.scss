@@ -1,4 +1,4 @@
-page-register {
+page-register2 {
     ion-content{
         background-image: linear-gradient(-45deg, rgb(0, 0, 0), rgb(179, 179, 179));
         .scroll-content{
@@ -39,5 +39,11 @@ page-register {
         margin: 0%;
         margin-bottom: 5%;
     }
-
+    .subtitle{
+        text-align: center;
+        color: white;
+        font-size: 18px;
+        margin: 0%;
+        margin-bottom: 5%;
+    }
 }
