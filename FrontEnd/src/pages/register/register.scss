@@ -6,6 +6,25 @@ page-register {
         }
     }
 
+    .header{
+        .toolbar{
+            .toolbar-background{
+                background-color: transparent;
+                border: none;
+            }
+            .back-button{
+                .button-inner{
+                    .back-button-icon{
+                        color: white;
+                    }
+                    .back-button-text{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
     .defaultButton{
         background-color: rgb(2, 179, 81);
         border-radius: 5px;
@@ -18,5 +37,13 @@ page-register {
         color: white;
         font-size: 30px;
         margin: 0%;
+        margin-bottom: 5%;
+    }
+    .subtitle{
+        text-align: center;
+        color: white;
+        font-size: 18px;
+        margin: 0%;
+        margin-bottom: 5%;
     }
 }
