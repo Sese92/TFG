@@ -11,6 +11,13 @@ import { CardIO } from '@ionic-native/card-io';
   templateUrl: 'register2.html',
 })
 export class Register2Page {
+  public name;
+  public number;
+  public numberChanged;
+  public cvvChanged;
+  public date;
+  public cvv;
+  public accountNumber;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private cardIO: CardIO) {
   }
@@ -35,12 +42,25 @@ export class Register2Page {
     .then(
       (res: boolean) => {
         if(res){
-          let options = {
+          var options = {
+            scanInstructions: "Escanee la parte frontal de su Tarjeta",
+            scanCardHolderName: true,
+            keepApplicationTheme:true,
+            hideCardIOLogo: true,
+            useCardIOLogo:false,
+            scanExpiry: true,
             requireExpiry: true,
-            requireCVV: false,
-            requirePostalCode: false
+            requireCVV: true,
+            requireCardholderName: true
           };
-          this.cardIO.scan(options);
+          this.cardIO.scan(options).then((data) =>{
+            this.name = data.cardholderName;
+            this.number = data.cardNumber;
+            this.date = data.expiryMonth + "/" + data.expiryYear;
+            this.cvv = data.cvv;
+            this.numberChanged = "**** **** **** " + this.number.substring(12, 16);
+            this.cvvChanged = "***"
+          });
         }
       }
     );

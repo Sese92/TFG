@@ -14,7 +14,31 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-
+.header{
+    .toolbar{
+        .toolbar-background{
+            background-color: color($colors, appGreen);
+        }
+        .back-button{
+            .button-inner{
+                .back-button-icon{
+                    color: white;
+                }
+                .back-button-text{
+                    display: none;
+                }
+            }
+        }
+        .toolbar-content{
+            .title{
+                .toolbar-title{
+                    color: white;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
 
 ion-input{
     border-bottom: solid 0.5px white;
@@ -26,5 +50,81 @@ ion-input{
 
     .text-input::placeholder{
         color: white;
+    }
+}
+
+ion-searchbar{
+    .searchbar-input-container{
+        background-color: transparent;
+        .searchbar-search-icon{
+            display: none;
+        }
+        .searchbar-input{
+            box-shadow: none;
+            width: 90%;
+            margin-left: 5%;
+            background-color: rgb(0, 143, 64);
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 30px;
+        }
+        .searchbar-input::placeholder{
+            color: white;
+        }
+        .searchbar-clear-icon{
+            display: none !important;
+
+            .button-inner{
+                display: none;
+
+            }
+        }
+    }
+}
+
+.item{
+    .item-inner{
+        border-bottom: none !important;
+    }
+}
+
+.tabs{
+    .tabbar{
+        .tab-button{
+            color: black;
+            .tab-button-icon{
+                color: black;
+            }
+        }
+        .tab-button[aria-selected=true]{
+            color: color($colors, appGreen);
+            .tab-button-icon{
+                color: color($colors, appGreen);
+            }
+        }
+    }
+}
+
+.segment{
+    .segment-button{
+        border-radius: 0px !important;
+        border: none;
+        border-bottom: 0.5px solid black;
+        color: black;
+        font-size: 16px;
+    }
+
+    .segment-button.segment-activated{
+        background-color: color($colors, appGreen);
+        border-radius: 0px !important;
+        border: none;
+        color: white;
+    }
+    .segment-button:last-child.segment-activated{
+        background-color: color($colors, appGreen);
+        border-radius: 0px !important;
+        border: none;
+        color: white !important;
     }
 }

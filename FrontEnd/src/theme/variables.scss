@@ -4,7 +4,70 @@
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
-
+@font-face {
+  font-family: "Graphik Black Italic";
+  src: url("../assets/fonts/Graphik-Black Italic.ttf")
+}
+@font-face {
+  font-family: "Graphik Black";
+  src: url("../assets/fonts/Graphik-Black.ttf")
+}
+@font-face {
+  font-family: "Graphik Bold Italic";
+  src: url("../assets/fonts/Graphik-Bold Italic.ttf")
+}
+@font-face {
+  font-family: "Graphik Bold";
+  src: url("../assets/fonts/Graphik-Bold.ttf")
+}
+@font-face {
+  font-family: "Graphik Light Italic";
+  src: url("../assets/fonts/Graphik-Light Italic.ttf")
+}
+@font-face {
+  font-family: "Graphik Light";
+  src: url("../assets/fonts/Graphik-Light.ttf")
+}
+@font-face {
+  font-family: "Graphik Medium Italic";
+  src: url("../assets/fonts/Graphik-Medium Italic.ttf")
+}
+@font-face {
+  font-family: "Graphik Medium";
+  src: url("../assets/fonts/Graphik-Medium.ttf")
+}
+@font-face {
+  font-family: "Graphik Regular Italic";
+  src: url("../assets/fonts/Graphik-Regular Italic.ttf")
+}
+@font-face {
+  font-family: "Graphik Regular";
+  src: url("../assets/fonts/Graphik-Regular.ttf")
+}
+@font-face {
+  font-family: "Graphik Semibold Italic";
+  src: url("../assets/fonts/Graphik-Semibold Italic.ttf")
+}
+@font-face{
+  font-family: "Graphik Semibold";
+  src: url("../assets/fonts/Graphik-Semibold.ttf")
+}
+@font-face {
+  font-family: "Graphik Super Italic";
+  src: url("../assets/fonts/Graphik-Super Italic.ttf")
+}
+@font-face {
+  font-family: "Graphik Super";
+  src: url("../assets/fonts/Graphik-Super.ttf")
+}
+@font-face {
+  font-family: "Graphik Thin Italic";
+  src: url("../assets/fonts/Graphik-Thin Italic.ttf")
+}
+@font-face {
+  font-family: "Graphik Thin";
+  src: url("../assets/fonts/Graphik-Thin.ttf")
+}
 
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
@@ -38,7 +101,9 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  appGreen: rgb(2, 179, 81),
+  appBlue: rgb(2, 85, 179)
 );
 
 

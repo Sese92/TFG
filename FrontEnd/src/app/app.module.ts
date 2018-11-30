@@ -1,3 +1,7 @@
+import { ProfilePage } from './../pages/profile/profile';
+import { ChatPage } from './../pages/chat/chat';
+import { ShippingPage } from './../pages/shipping/shipping';
+import { ProductsPage } from './../pages/products/products';
 import { Register2Page } from './../pages/register2/register2';
 import { TabsPage } from './../pages/tabs/tabs';
 import { RegisterPage } from './../pages/register/register';
@@ -10,6 +14,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { CardIO } from '@ionic-native/card-io';
+import { ProductDetailsPage } from '../pages/product-details/product-details';
+import { GoogleMaps } from '@ionic-native/google-maps';
 
 @NgModule({
   declarations: [
@@ -17,12 +23,19 @@ import { CardIO } from '@ionic-native/card-io';
     LoginPage,
     RegisterPage,
     Register2Page,
-    TabsPage
+    TabsPage,
+    ProductsPage,
+    ShippingPage,
+    ChatPage,
+    ProfilePage,
+    ProductDetailsPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, {
-      backButtonIcon: "ios-arrow-back"
+      backButtonIcon: "ios-arrow-back",
+      tabsHideOnSubPages: true,
+      pageTransition: 'ios-transition'
     })
   ],
   bootstrap: [IonicApp],
@@ -31,12 +44,18 @@ import { CardIO } from '@ionic-native/card-io';
     LoginPage,
     RegisterPage,
     Register2Page,
-    TabsPage
+    TabsPage,
+    ProductsPage,
+    ShippingPage,
+    ChatPage,
+    ProfilePage,
+    ProductDetailsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     CardIO,
+    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

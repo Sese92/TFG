@@ -26,7 +26,7 @@ page-register {
     }
 
     .defaultButton{
-        background-color: rgb(2, 179, 81);
+        background-color: color($colors, appGreen);
         border-radius: 5px;
         height: 35px;
         margin-bottom: 5%;

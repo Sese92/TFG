@@ -1,0 +1,54 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalles del producto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-slides pager>
+    <ion-slide *ngFor="let image of product.images">
+      <img [src]="image" />
+    </ion-slide>
+  </ion-slides>
+
+  <ion-grid>
+    <ion-row style="border-bottom: 0.5px solid #cecece">
+      <ion-col col-9>
+        <p class="productTitle" margin-left margin-right no-margin-top>
+          {{product.title}}
+        </p>
+      </ion-col>
+      <ion-col col-3 style="align-self: flex-end">
+        <p class="price">{{product.price}}</p>
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="product.ownerImage">
+        </ion-avatar>
+        <p class="owner">{{product.owner}}</p>
+        <button ion-button color="appBlue">Chatear</button>
+      </ion-item>
+    </ion-row>
+    <ion-row style="padding: 5%">
+      <p style="font-family: 'Graphik Regular'; margin: 0%">{{product.description}}</p>
+    </ion-row>
+  </ion-grid>
+
+  <div class="mapDiv">
+    <div #map id="map"></div> 
+  </div>
+
+
+</ion-content>
+
+<ion-footer>
+  <button ion-button color="appGreen" large full no-margin>
+    Hacer oferta
+  </button>
+</ion-footer>

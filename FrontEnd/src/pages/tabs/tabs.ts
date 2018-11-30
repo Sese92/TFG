@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
-
-/**
- * Generated class for the TabsPage tabs.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ProductsPage } from '../products/products';
+import { ShippingPage } from '../shipping/shipping';
+import { ChatPage } from '../chat/chat';
+import { ProfilePage } from '../profile/profile';
 
 @IonicPage()
 @Component({
@@ -15,10 +12,10 @@ import { IonicPage, NavController } from 'ionic-angular';
 })
 export class TabsPage {
 
-  productsRoot = 'ProductsPage'
-  shippingRoot = 'ShippingPage'
-  chatRoot = 'ChatPage'
-  profileRoot = 'ProfilePage'
+  productsRoot = ProductsPage
+  shippingRoot = ShippingPage
+  chatRoot = ChatPage
+  profileRoot = ProfilePage
 
 
   constructor(public navCtrl: NavController) {}

@@ -26,10 +26,20 @@ page-register2 {
     }
 
     .defaultButton{
-        background-color: rgb(2, 179, 81);
+        background-color: color($colors, appGreen);
         border-radius: 5px;
-        height: 35px;
-        margin-bottom: 5%;
+        width: 100%;
+    }
+    .scanButton{
+        background-color: color($colors, appBlue);
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .sectionTitle{
+        color: white;
+        font-size: 18px;
+        text-decoration: underline;
     }
 
     .title{
@@ -42,8 +52,8 @@ page-register2 {
     .subtitle{
         text-align: center;
         color: white;
-        font-size: 18px;
+        font-size: 16px;
         margin: 0%;
-        margin-bottom: 5%;
     }
+    
 }
