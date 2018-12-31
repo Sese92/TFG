@@ -1,12 +1,7 @@
+import { ChatProvider } from './../../providers/chat/chat';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ChatPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ConversationPage } from '../conversation/conversation';
 
 @IonicPage()
 @Component({
@@ -14,12 +9,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'chat.html',
 })
 export class ChatPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  chats;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public chatservice: ChatProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChatPage');
+    this.chatservice.getChats().then((chats) => {
+      this.chats = chats;
+    });
+
+  }
+
+  viewMessages(chat) {
+    this.chatservice.initializeChat(chat)
+    this.navCtrl.push(ConversationPage)
   }
 
 }

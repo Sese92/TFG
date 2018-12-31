@@ -21,7 +21,7 @@
 
     <ion-grid style="height: 95%; overflow-y: auto" *ngIf="section === 'made'">
       <ion-col no-padding>
-          <ion-row class="shipment" *ngFor="let shipment of made">
+          <ion-row class="shipment" *ngFor="let shipment of made" (click)="details(shipment)">
               <ion-col col-10 no-padding>
                   <ion-item>
                       <ion-avatar item-start>
@@ -34,7 +34,6 @@
                 <ion-col col-2 no-padding style="align-self: center; text-align: center">
                   <ion-icon style="font-size: 20px" name="ios-arrow-forward-outline"></ion-icon>
                 </ion-col>
-                <hr style="width: 100%; height: 1px">
             </ion-row>
           </ion-col>
 
@@ -42,7 +41,7 @@
 
     <ion-grid style="height: 95%; overflow-y: auto" *ngIf="section === 'received'">
         <ion-col no-padding>
-        <ion-row class="shipment" *ngFor="let shipment of received">
+        <ion-row class="shipment" *ngFor="let shipment of received" (click)="details(shipment)">
             <ion-col col-10 no-padding>
                 <ion-item>
                     <ion-avatar item-start>
@@ -55,7 +54,6 @@
               <ion-col col-2 no-padding style="align-self: center; text-align: center">
                 <ion-icon style="font-size: 20px" name="ios-arrow-forward-outline"></ion-icon>
               </ion-col>
-              <hr style="width: 100%; height: 1px">
           </ion-row>
         </ion-col>
     </ion-grid>

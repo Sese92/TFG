@@ -1,0 +1,68 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Estado del envío</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-2 no-padding>
+        <div class="dotCompleted"></div>
+      </ion-col>
+      <ion-col col-10 no-padding>
+        <p class="text">Oferta realizada el 10/12/2018</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 no-padding>
+        <div class="lineCompleted"></div>
+      </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 no-padding>
+        <div class="dotCompleted"></div>
+      </ion-col>
+      <ion-col col-10 no-padding>
+        <p class="text">Oferta aceptada el 13/12/2018</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 no-padding>
+        <div class="lineCompleted"></div>
+      </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 no-padding>
+        <div class="dotCompleted"></div>
+      </ion-col>
+      <ion-col col-10 no-padding>
+        <p class="text">Producto recogido el 15/12/2018</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 no-padding>
+        <div class="lineIncompleted"></div>
+      </ion-col> 
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 no-padding>
+        <div class="dotIncompleted"></div>
+      </ion-col>
+      <ion-col col-10 no-padding>
+        <p class="text">Entrega</p>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row style="margin-top: 20px" align-items-center>
+      <p class="qrText">
+        Muestra este código al transportista cuando lo requiera
+      </p>
+      <ngx-qrcode [qrc-value]="qrText"></ngx-qrcode>
+    </ion-row>
+  </ion-grid>
+</ion-content>

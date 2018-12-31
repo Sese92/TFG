@@ -16,7 +16,7 @@
     <p class="sectionTitle">Tarjeta de crédito</p>
     <ion-row>
       <ion-col col-7 no-padding>
-        <ion-input [(ngModel)]="numberChanged" type="text" placeholder="Número de la tarjeta"></ion-input>
+        <ion-input [(ngModel)]="cardNumber" type="text" placeholder="Número de la tarjeta"></ion-input>
       </ion-col>
       <ion-col col-1>
 
@@ -26,26 +26,26 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-input [(ngModel)]="name" type="text" placeholder="Nombre del propietario"></ion-input>
+      <ion-input [(ngModel)]="cardName" type="text" placeholder="Nombre del propietario"></ion-input>
     </ion-row>
     <ion-row>
       <ion-col col-5 no-padding>
-        <ion-input [(ngModel)]="date" type="text" placeholder="Fecha"></ion-input>
+        <ion-input [(ngModel)]="cardDate" type="text" placeholder="Fecha"></ion-input>
       </ion-col>
       <ion-col col-2>
 
       </ion-col>
       <ion-col col-5 no-padding>
-        <ion-input [(ngModel)]="cvvChanged" type="text" placeholder="CVV"></ion-input>
+        <ion-input [(ngModel)]="cardCvv" type="text" placeholder="CVV"></ion-input>
       </ion-col>
     </ion-row>
 
     <p class="sectionTitle">Cuenta bancaria</p>
-    <ion-input [(ngModel)]="accountNumber" type="text" placeholder="Número de la cuenta"></ion-input>
+    <ion-input [(ngModel)]="accountNumber" type="number" placeholder="Número de la cuenta"></ion-input>
 
   </ion-grid>
 
 </ion-content>
 <ion-footer style="padding: 5%">
-  <button ion-button class="defaultButton">Registrar</button>
+  <button ion-button class="defaultButton" (click)="register()">Registrar</button>
 </ion-footer>

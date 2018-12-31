@@ -25,7 +25,7 @@ page-products {
             }
             .swiper-pagination{
                 .swiper-pagination-bullet-active{
-                    background-color: color($colors, appBlue);
+                    background-color: color($colors, appGreen);
                 }
             }
         }
@@ -53,11 +53,18 @@ page-products {
         }
         .price{
             text-align: right;
-            color: color($colors, appBlue);
+            color: color($colors, appGreen);
             font-size: 20px;
             font-family: 'Graphik Bold';
 
         }
     }
 
+    .fab{
+        background-color: color($colors, appGreen);
+
+        .icon{
+            font-size: 30px;
+        }
+    }
 }

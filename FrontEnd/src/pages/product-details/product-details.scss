@@ -3,6 +3,10 @@ page-product-details {
         padding-top: 0 !important;
     }
 
+    .item{
+        margin-left: 20px;
+    }
+
     .mapDiv{
         border-radius: 10px;
         width: 90%;
@@ -53,6 +57,11 @@ page-product-details {
     .productTitle{
         font-size: 20px;
         font-family: 'Graphik Medium';
+    }
+
+    .extra{
+        margin: 0%;
+        font-family: 'Graphik Regular'
     }
  
     .price{

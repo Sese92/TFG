@@ -4,10 +4,7 @@ namespace org.tfg.base
                             Concepts
  ------------------------------------------------------------------------------------------*/
 concept Address{
-  o String city
-  o String country
-  o String street
-  o String zip optional
+  o String address
   o Double latitude
   o Double longitude
 }

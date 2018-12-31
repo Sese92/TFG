@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ShipmentDetailsPage } from './shipment-details/shipment-details';
 
 @IonicPage()
 @Component({
@@ -22,6 +23,10 @@ export class ShippingPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ShippingPage');
+  }
+
+  details(shipment){
+    this.navCtrl.push(ShipmentDetailsPage);
   }
 
 }

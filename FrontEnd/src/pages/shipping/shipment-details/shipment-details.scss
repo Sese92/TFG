@@ -1,0 +1,60 @@
+page-shipment-details {
+    .dotCompleted{
+        background-color: color($colors, appBlue);
+        border-radius: 20px;
+        height: 20px;
+        width: 20px;
+        margin: auto;
+    }
+
+    .dotIncompleted{
+        background-color: transparent;
+        border-radius: 20px;
+        border: solid 1px color($colors, appBlue);
+        height: 20px;
+        width: 20px;
+        margin: auto;
+        opacity: 0.3;
+
+    }
+
+    .lineCompleted{
+        background-color: color($colors, appBlue);
+        height: 50px;
+        width: 2px;
+        margin: auto;
+    }
+
+    .lineIncompleted{
+        background-color: color($colors, appBlue);
+        height: 50px;
+        width: 2px;
+        margin: auto;
+        opacity: 0.3;
+    }
+
+    .text{
+        margin: 0%;
+        font-family: 'Graphik Medium';
+        font-size: 16px;
+    }
+
+    .qrText{
+        text-align: center;
+        font-family: 'Graphik Regular';
+        font-size: 14px;
+    }
+
+    ngx-qrcode{
+        width: 100%;
+        .qrcode{
+            text-align: center;
+    
+            img{
+                height: 300px;
+                width: 300px;
+            }
+        }
+    }
+
+}

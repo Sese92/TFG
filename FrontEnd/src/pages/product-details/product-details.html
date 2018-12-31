@@ -16,23 +16,34 @@
 
   <ion-grid>
     <ion-row style="border-bottom: 0.5px solid #cecece">
-      <ion-col col-9>
-        <p class="productTitle" margin-left margin-right no-margin-top>
-          {{product.title}}
-        </p>
-      </ion-col>
-      <ion-col col-3 style="align-self: flex-end">
-        <p class="price">{{product.price}}</p>
-      </ion-col>
-
+      <ion-row style="width: 100%">
+        <ion-col col-9>
+          <p class="productTitle" margin-left margin-right no-margin-top>
+            {{product.name}}
+          </p>
+        </ion-col>
+        <ion-col col-3 style="align-self: flex-end">
+          <p class="price">{{product.amount}} €</p>
+        </ion-col>
+      </ion-row>
+      <ion-row style="width: 100%">
+        <ion-col col-9>
+          <p class="extra" margin-left margin-right no-margin-top>
+            Envío: 0.05€/Km
+          </p>
+        </ion-col>
+        <ion-col col-3 style="align-self: flex-end">
+          <p class="extra" style="text-align: center">+ {{extra}} €</p>
+        </ion-col>
+      </ion-row>
     </ion-row>
     <ion-row>
       <ion-item>
         <ion-avatar item-start>
-          <img [src]="product.ownerImage">
+          <img src="assets/imgs/user.png">
         </ion-avatar>
-        <p class="owner">{{product.owner}}</p>
-        <button ion-button color="appBlue">Chatear</button>
+        <p class="owner">{{ownerName}}</p>
+        <button (click)="chat()" ion-button color="appGreen">Chatear</button>
       </ion-item>
     </ion-row>
     <ion-row style="padding: 5%">
@@ -48,7 +59,7 @@
 </ion-content>
 
 <ion-footer>
-  <button ion-button color="appGreen" large full no-margin>
+  <button (click)="makeOffer()" ion-button color="appBlue" large full no-margin>
     Hacer oferta
   </button>
 </ion-footer>

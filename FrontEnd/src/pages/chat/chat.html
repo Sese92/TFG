@@ -7,6 +7,14 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content class="chats">
+    <ion-row class="conversation" *ngFor="let chat of chats" (click)="viewMessages(chat)">
+        <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/imgs/user.png">
+            </ion-avatar>
+            <h2>{{chat.product}}</h2>
+            <p>{{chat.displayName}}</p>
+          </ion-item>
+    </ion-row>
 </ion-content>

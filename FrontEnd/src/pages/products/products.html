@@ -19,11 +19,16 @@
               </ion-slide>
             </ion-slides>
             <div class="product-description">
-                <p>{{ product.title }}</p>
-                <p class="price">{{product.price}}</p>
+                <p>{{ product.name }}</p>
+                <p class="price">{{product.amount}} €</p>
               </div>
             </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <ion-fab bottom right>
+      <button ion-fab (click)="newProduct()"><ion-icon name="md-add"></ion-icon></button>
+    </ion-fab>
+
 </ion-content>
