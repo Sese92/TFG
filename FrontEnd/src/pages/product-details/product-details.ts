@@ -59,7 +59,7 @@ export class ProductDetailsPage {
   }
 
   makeOffer(){
-    this.navCtrl.push(MakeOfferPage)
+    this.navCtrl.push(MakeOfferPage, {"product": this.product, "extra": this.extra})
   }
 
   chat() {

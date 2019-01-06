@@ -21,14 +21,17 @@ page-new-product {
         padding: 5px;
 
         .text{
+            margin: 2px;
             color: black;
             text-align: center;
-            font-size: 14px;
+            font-size: 16px;
             font-family: 'Graphik Medium';
 
         }
         .images{
-            height: 100px;
+            height: 80px;
+            width: 80px;
+
         }
     }
     .slides{

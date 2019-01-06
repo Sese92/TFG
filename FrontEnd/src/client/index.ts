@@ -35,12 +35,18 @@ export class ApiClientService {
     return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(updateProfile));
   }
 
-
   public uploadProduct(product:any):Observable<HttpResponse<any>> {
     let uri = `/api/UploadProduct`;
     let headers = new HttpHeaders();
     let params = new HttpParams();
     return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(product));
+  }
+
+  public makeOffer(offer:any):Observable<HttpResponse<any>> {
+    let uri = `/api/MakeOffer`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams();
+    return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(offer));
   }
 
 
@@ -72,10 +78,6 @@ export class ApiClientService {
     let params = new HttpParams().set('owner','resource:org.tfg.model.UserParticipant#'+owner);
     return this.sendRequest<any>('get', uri, headers, params, null);  
   }
-
-
-
-
 
 
   private sendRequest<T>(method: string, uri: string, headers: HttpHeaders, params: HttpParams, body: any): Observable<HttpResponse<T>> {

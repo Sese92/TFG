@@ -3,43 +3,40 @@
     <ion-col col-11>
     </ion-col>
     <ion-col col-1>
-        <ion-icon (click)="close()" style="font-size: 30px" name="md-close"></ion-icon>
+      <ion-icon (click)="close()" style="font-size: 30px" name="md-close"></ion-icon>
     </ion-col>
   </ion-row>
   <ion-grid>
-    <div class="addImages" *ngIf="!haveImages">
-      <p class="text">Añade tus imagenes desde la cámara o desde la galería</p>
-      <ion-row>
-        <ion-col col-6 style="text-align: center">
-          <img (click)="takePhoto()" class="images" src="assets/imgs/camera.png">
+    <div class="addImages">
+      <p class="text">Añade tus imagenes</p>
+      <p class="text">Llevas añadidas {{contador}} imagenes</p>
+      <ion-row align-items-center style="height: 75%">
+        <ion-col col-4 style="text-align: center">
         </ion-col>
-        <ion-col col-6 style="text-align: center">
-            <img (click)="selectPhoto()" class="images" src="assets/imgs/gallery.png">
-          </ion-col>
+        <ion-col col-4 style="text-align: center">
+          <img (click)="addImage()" class="images" src="assets/imgs/add.png">
+        </ion-col>
+        <ion-col col-4 style="text-align: center">
+        </ion-col>
       </ion-row>
     </div>
-      <ion-slides *ngIf="haveImages" pager>
-        <ion-slide>
-          <img/>
-        </ion-slide>
-      </ion-slides>
     <ion-row>
       <form [formGroup]="myForm" (ngSubmit)="saveData()" style="width: 100%">
         <p class="section">Nombre del producto</p>
-          <ion-input type="text" placeholder="Nombre" formControlName="productName" [(ngModel)]="productName"></ion-input>
+        <ion-input type="text" placeholder="Nombre" formControlName="productName" [(ngModel)]="productName"></ion-input>
 
-          <p class="section">Descripción del producto</p>
-          <ion-textarea placeholder="Descripción"></ion-textarea>
+        <p class="section">Descripción del producto</p>
+        <ion-textarea formControlName="description" [(ngModel)]="description" placeholder="Descripción"></ion-textarea>
 
-          <p class="section">Precio inicial</p>
-          <ion-row align-items-center>
-            <ion-input style="max-width: 100px" type="number" placeholder="Precio" formControlName="price" [(ngModel)]="price"></ion-input>
-            <p class="section" style="margin:0px; margin-left: 5px; font-size: 20px">€</p>
-          </ion-row>
+        <p class="section">Precio inicial</p>
+        <ion-row align-items-center>
+          <ion-input style="max-width: 100px" type="number" placeholder="Precio" formControlName="price" [(ngModel)]="price"></ion-input>
+          <p class="section" style="margin:0px; margin-left: 5px; font-size: 20px">€</p>
+        </ion-row>
       </form>
     </ion-row>
   </ion-grid>
 </ion-content>
 <ion-footer>
-  <button ion-button>Subir producto</button>
+  <button ion-button (click)="uploadProduct()">Subir producto</button>
 </ion-footer>

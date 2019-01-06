@@ -5,17 +5,4 @@ page-login {
             overflow-y: hidden;
         }
     }
-
-    .defaultButton{
-        background-color: color($colors, appBlue);
-        border-radius: 5px;
-        height: 35px;
-    }
-    .secondaryButton{
-        background-color: color($colors, appGreen);
-        border-radius: 5px;
-        height: 35px;
-        margin-bottom: 5%;
-    }
-
 }

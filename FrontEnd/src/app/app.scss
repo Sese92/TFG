@@ -40,6 +40,18 @@
     }
 }
 
+.defaultButton{
+    background-color: color($colors, appBlue);
+    border-radius: 5px;
+    height: 35px;
+}
+.secondaryButton{
+    background-color: color($colors, appGreen);
+    border-radius: 5px;
+    height: 35px;
+    margin-bottom: 5%;
+}
+
 ion-input{
     border-bottom: solid 0.5px white;
 
