@@ -1,0 +1,15 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-row align-items-center style="margin-top: 35px; margin-bottom: 35px; justify-content: center">
+        <img class="logo" src="assets/imgs/icon.png">
+    </ion-row>
+    <ion-row align-items-center style="height: 20%; justify-content: center">
+        <p class="instructions">Introduce tu número de empleado para continuar</p>
+        <ion-input placeholder="Número" type="number" [(ngModel)]="carrierID">  </ion-input>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <button ion-button class="loginButton" (click)="login()">Entrar</button>
+</ion-footer>

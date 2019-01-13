@@ -1,0 +1,11 @@
+
+<ion-content padding>
+        <ion-row *ngFor="let order of packageList" style="border-bottom: 1px solid #bebebe">
+                <ion-col col-2 style="align-self: center; padding: 2%">
+                    <img src="assets/imgs/package3.png">
+                </ion-col>
+                <ion-col col-10 style="align-self: center">
+                    <p class="name">{{order.productName}}</p>
+                </ion-col>
+            </ion-row>
+</ion-content>

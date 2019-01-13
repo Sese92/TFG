@@ -1,0 +1,21 @@
+page-tabs {
+
+    .tabs{
+        .tabbar{
+            background-color: orange;
+            border-bottom: 0px !important;
+
+            .tab-button{
+                .tab-button-text{
+                    color: white;
+                }
+            }
+            .tab-button[aria-selected=true]{
+                border-bottom: solid 3px black !important;
+                .tab-button-text{
+                    color: black;
+                }
+            }
+        }
+    }
+}

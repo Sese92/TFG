@@ -1,0 +1,14 @@
+<ion-content padding>
+    <ion-row *ngFor="let order of packageList" style="border-bottom: 1px solid #bebebe" (click)="scanQR(order)">
+        <ion-col col-2 style="align-self: center; padding: 2%">
+            <img src="assets/imgs/package2.png">
+        </ion-col>
+        <ion-col col-9 style="align-self: center">
+            <p class="name">{{order.productName}}</p>
+            <p class="address">{{order.buyerAddress}}</p>
+        </ion-col>
+        <ion-col col-1 style="align-self: center">
+            <ion-icon style="font-size: 30px" name="ios-arrow-forward-outline"></ion-icon>
+        </ion-col>
+    </ion-row>
+</ion-content>

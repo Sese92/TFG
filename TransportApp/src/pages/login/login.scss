@@ -1,0 +1,43 @@
+page-login {
+    .content{
+        background: linear-gradient(rgb(251, 255, 0), rgb(168, 101, 0));
+    }
+    .logo{
+        width: 70%;
+    }
+    .instructions{
+        font-size: 18px;
+        color: black;
+        text-align: center;
+    }
+
+    ion-input{
+        border-bottom: solid 1px black;
+
+        .text-input{
+            font-size: 35px;
+            text-align: center;
+        }
+        .text-input::placeholder{
+            color: black;
+        }
+    }
+}
+
+ion-footer{
+    padding: 5%;
+
+    .loginButton{
+        background-color: transparent;
+        color: black;
+        border: solid 2px black;
+        width: 100%;
+        font-size: 20px;
+        font-weight: bold;   
+    }
+
+    .loginButton.activated{
+        opacity: 0.6;
+        background-color: transparent;
+    }
+}
