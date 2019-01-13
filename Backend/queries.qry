@@ -1,0 +1,85 @@
+query GetProducts{
+  description: "Select all the products that I can buy"
+  statement: 
+      SELECT org.tfg.model.Product
+          WHERE (owner !=_$owner AND status=='CREATED')
+}
+
+query GetMyProducts{
+  description: "Select all my products"
+  statement: 
+      SELECT org.tfg.model.Product
+          WHERE (owner ==_$owner)
+}
+
+query GetAllProducts{
+  description: "Get all the products"
+  statement: 
+      SELECT org.tfg.model.Product
+}
+
+query GetProductById{
+  description: "Select the especific product"
+  statement: 
+      SELECT org.tfg.model.Product
+          WHERE (productId ==_$productId)
+}
+
+query GetUserById{
+  description: "Select the especific user"
+  statement: 
+      SELECT org.tfg.model.UserParticipant
+          WHERE (userId ==_$userId)
+}
+
+query GetMyOffers{
+  description: "Select all the offers for me"
+  statement: 
+      SELECT org.tfg.model.Offer
+          WHERE (product ==_$product AND status == "DONE")
+}
+
+query GetOffersDone{
+  description: "Select all the offers done by me"
+  statement: 
+      SELECT org.tfg.model.Offer
+          WHERE (buyer ==_$buyer AND status =="DONE")
+}
+
+query GetOffersRejected{
+  description: "Select all the rejected offers done by me"
+  statement: 
+      SELECT org.tfg.model.Offer
+          WHERE (buyer ==_$buyer AND status =="REJECTED")
+}
+
+query GetOrdersDone{
+  description: "Select all the orders of products that I have bought"
+  statement: 
+      SELECT org.tfg.model.Order
+          WHERE (buyer ==_$buyer)
+}
+
+query GetMyOrders{
+  description: "Select all the orders of products that I have sold"
+  statement: 
+      SELECT org.tfg.model.Order
+          WHERE (product ==_$product)
+}
+
+
+/*--------Falcon APP-----------*/
+
+query GetCarrierById{
+  description: "Select the especific user"
+  statement: 
+      SELECT org.tfg.model.Carrier
+          WHERE (carrierId ==_$carrierId)
+}
+
+query GetOrdersByStatusAndCarrierId{
+  description: "Get the Orders by the status and the Carrier ID"
+  statement: 
+      SELECT org.tfg.model.Order
+          WHERE (carrier ==_$carrier AND status ==_$status)
+}

@@ -1,0 +1,8 @@
+page-login {
+    ion-content{
+        background-image: linear-gradient(-45deg, rgb(0, 0, 0), rgb(179, 179, 179));
+        .scroll-content{
+            overflow-y: hidden;
+        }
+    }
+}

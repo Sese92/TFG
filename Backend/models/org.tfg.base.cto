@@ -4,10 +4,7 @@ namespace org.tfg.base
                             Concepts
  ------------------------------------------------------------------------------------------*/
 concept Address{
-  o String city
-  o String country
-  o String street
-  o String zip optional
+  o String address
   o Double latitude
   o Double longitude
 }
@@ -27,12 +24,11 @@ concept BankAccount{
 /**------------------------------------------------------------------------------------------
                             Abstract
  ------------------------------------------------------------------------------------------*/
-abstract participant User identified by userId {
+abstract participant User identified by userId{
   o String userId
   o String name
   o String surname
   o String email
-  o String password
   o String numberPhone optional
 }
 
@@ -51,18 +47,23 @@ abstract participant CarrierInfo identified by carrierId{
 /**------------------------------------------------------------------------------------------
                             Enums
  ------------------------------------------------------------------------------------------*/
-enum productStatus{
+enum ProductStatus{
   o CREATED //New product
   o SOLD //Product sold
 }
 
-enum offerStatus{
+enum OfferStatus{
   o DONE
   o ACCEPTED
   o REJECTED
 }
 
-enum orderStatus{
+enum OfferType{
+  o WITHOUTSHIPPING
+  o WITHSHIPPING
+}
+
+enum OrderStatus{
   o WAITING
   o ONTHEWAY //Product picked up by the carrier
   o RECEIVED //Product received by the buyer

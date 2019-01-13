@@ -1,0 +1,42 @@
+<ion-header no-border>
+  <ion-navbar>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <p class="title">Registro</p>
+  <ion-grid>
+    <form [formGroup]="myForm" (ngSubmit)="saveData()">
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" formControlName="email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Contraseña</ion-label>
+        <ion-input type="password" formControlName="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <p style="color: white; font-size: 14px; margin: 0%; margin-top: 5px;">Mínimo 6 caracteres</p>
+      <ion-item>
+        <ion-label floating>Repetir Contraseña</ion-label>
+        <ion-input type="password" formControlName="repeatPassword" [(ngModel)]="repeatPassword"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Nombre</ion-label>
+        <ion-input type="text" formControlName="name" [(ngModel)]="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Apellidos</ion-label>
+        <ion-input type="text" formControlName="surname" [(ngModel)]="surname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Teléfono</ion-label>
+        <ion-input type="number" formControlName="phone" [(ngModel)]="phone"></ion-input>
+      </ion-item>
+    </form>
+  </ion-grid>
+
+  <ion-fab bottom right style="padding: 5%" (click)="next()">
+    <ion-icon style="font-size: 40px; background-color: rgb(2, 179, 81)" ion-fab name="ios-arrow-forward"></ion-icon>
+  </ion-fab>
+</ion-content>

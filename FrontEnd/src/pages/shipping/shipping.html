@@ -1,0 +1,62 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Envíos</ion-title>
+  </ion-navbar>
+  
+</ion-header>
+
+
+<ion-content>
+    <ion-segment [(ngModel)]="section">
+
+    <ion-segment-button value="made">
+        Compras
+      </ion-segment-button>
+      <ion-segment-button value="received">
+        Ventas
+      </ion-segment-button>
+    </ion-segment>
+
+    <ion-grid style="height: 95%; overflow-y: auto" *ngIf="section === 'made'">
+      <ion-col no-padding>
+          <ion-row class="shipment" *ngFor="let shipment of made" (click)="details(shipment)">
+              <ion-col col-10 no-padding>
+                  <ion-item>
+                      <ion-avatar item-start>
+                        <img src="assets/imgs/user.png">
+                      </ion-avatar>
+                      <p class="productName">Figura Assassins Creed</p>
+                      <p class="userName">Jose Jimenez</p>
+                    </ion-item>
+              </ion-col>
+                <ion-col col-2 no-padding style="align-self: center; text-align: center">
+                  <ion-icon style="font-size: 20px" name="ios-arrow-forward-outline"></ion-icon>
+                </ion-col>
+            </ion-row>
+          </ion-col>
+
+    </ion-grid>
+
+    <ion-grid style="height: 95%; overflow-y: auto" *ngIf="section === 'received'">
+        <ion-col no-padding>
+        <ion-row class="shipment" *ngFor="let shipment of received" (click)="details(shipment)">
+            <ion-col col-10 no-padding>
+                <ion-item>
+                    <ion-avatar item-start>
+                      <img src="assets/imgs/user.png">
+                    </ion-avatar>
+                    <p class="productName">Figura Assassins Creed</p>
+                    <p class="userName">Laura Fraile</p>
+                  </ion-item>
+            </ion-col>
+              <ion-col col-2 no-padding style="align-self: center; text-align: center">
+                <ion-icon style="font-size: 20px" name="ios-arrow-forward-outline"></ion-icon>
+              </ion-col>
+          </ion-row>
+        </ion-col>
+    </ion-grid>
+
+</ion-content>
+

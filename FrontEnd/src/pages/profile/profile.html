@@ -1,0 +1,60 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Perfil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid class="headerInformation">
+    <ion-row>
+      <ion-col col-4>
+          <button (click)="edit()" ion-button class="editButton">Editar</button>
+      </ion-col>
+      <ion-col col-4>
+        <ion-avatar style="text-align: center"><img style="filter:invert(100%); height: 80px; display: inline" src="assets/imgs/user.png"></ion-avatar>
+      </ion-col>
+      <ion-col col-4 style="text-align: right">
+        <button (click)="logout()" ion-button class="editButton">Salir</button>
+      </ion-col>
+    </ion-row>
+    <p class="userName">{{name}} {{surname}}</p>
+  </ion-grid>
+
+  <ion-grid class="userProducts">
+    <ion-row style="border-bottom: solid 0.5px gray">
+        <p style="font-family: 'Graphik Medium'; color: black; width: 100%; font-size: 18px; text-align: center">Tus productos</p>
+    </ion-row>
+    <ion-col style="overflow-y: auto">
+        <ion-row>
+            <ion-col no-padding col-6 *ngFor="let product of products" (click)="editProduct()">
+                <ion-card class="pin">
+                <ion-slides pager>
+                  <ion-slide>
+                      <img src="assets/imgs/assassins.png">
+                  </ion-slide>
+                  <ion-slide>
+                      <img src="assets/imgs/assassins.png">
+                  </ion-slide>
+                  <ion-slide>
+                      <img src="assets/imgs/assassins.png">
+                  </ion-slide>
+                    
+                  <!--
+                  <ion-slide *ngFor="let image of product.images">
+                        <img [src]="image" />
+                    </ion-slide>
+                  -->
+                  </ion-slides>
+                  <div class="product-description">
+                      <p>{{ product.name }}</p>
+                      <p class="price">{{product.amount}} €</p>
+                    </div>
+                  </ion-card>
+            </ion-col>
+          </ion-row>
+    </ion-col>
+  </ion-grid>
+</ion-content>

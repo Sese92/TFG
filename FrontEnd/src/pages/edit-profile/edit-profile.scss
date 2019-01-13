@@ -1,0 +1,18 @@
+page-edit-profile {
+    .title{
+        font-family: 'Graphik Medium';
+    }
+    .input{
+        padding: 10px;
+        border: solid black 1px;
+        border-radius: 10px;
+
+    }
+    .text-input{
+        color: black;
+        margin: 0%;
+    }
+    .text-input::placeholder{
+        color: gray;
+    }
+}

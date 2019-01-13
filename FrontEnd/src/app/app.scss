@@ -14,3 +14,161 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.header{
+    .toolbar{
+        .toolbar-background{
+            background-color: color($colors, appBlue);
+        }
+        .back-button{
+            .button-inner{
+                .back-button-icon{
+                    color: white;
+                }
+                .back-button-text{
+                    display: none;
+                }
+            }
+        }
+        .toolbar-content{
+            .title{
+                .toolbar-title{
+                    color: white;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.defaultButton{
+    background-color: color($colors, appBlue);
+    border-radius: 5px;
+    height: 35px;
+}
+.secondaryButton{
+    background-color: color($colors, appGreen);
+    border-radius: 5px;
+    height: 35px;
+    margin-bottom: 5%;
+}
+
+ion-input{
+    border-bottom: solid 0.5px white;
+
+    .text-input{
+        color: white;
+    }
+
+    .text-input::placeholder{
+        color: white;
+    }
+}
+
+ion-searchbar{
+    .searchbar-input-container{
+        background-color: transparent;
+        .searchbar-search-icon{
+            display: none;
+        }
+        .searchbar-input{
+            box-shadow: none;
+            width: 90%;
+            margin-left: 5%;
+            background-color: rgb(0, 48, 104);
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            border-radius: 30px;
+        }
+        .searchbar-input::placeholder{
+            color: white;
+        }
+        .searchbar-clear-icon{
+            display: none !important;
+
+            .button-inner{
+                display: none;
+
+            }
+        }
+    }
+}
+
+.item{
+    padding-left: 0px;
+    background-color: transparent;
+    .item-inner{
+        border-bottom: none !important;
+
+        .input-wrapper{
+            .label{
+                font-size: 16px;
+                color: white;
+            }
+            .input{
+                .text-input{
+                    font-size: 16px;
+                }      
+            }
+        }
+    }
+}
+
+.tabs{
+    .tabbar{
+        .tab-button{
+            color: black;
+            .tab-button-icon{
+                color: black;
+            }
+        }
+        .tab-button[aria-selected=true]{
+            color: color($colors, appBlue);
+            .tab-button-icon{
+                color: color($colors, appBlue);
+            }
+        }
+    }
+}
+
+.segment{
+    .segment-button{
+        border-radius: 0px !important;
+        border: none;
+        border-bottom: 0.5px solid black;
+        color: black;
+        font-size: 16px;
+    }
+
+    .segment-button.segment-activated{
+        background-color: color($colors, appBlue);
+        border-radius: 0px !important;
+        border: none;
+        color: white;
+    }
+    .segment-button:last-child.segment-activated{
+        background-color: color($colors, appBlue);
+        border-radius: 0px !important;
+        border: none;
+        color: white !important;
+    }
+}
+
+//Toast with the error message
+.toastClass{
+    //Toast div
+    .toast-wrapper{
+        background-color: color($colors, appGreen);
+
+        //Toast container
+        .toast-container{
+            text-align: center;
+
+            //Toast message
+            .toast-message{
+                color: white;
+                font-size: 16px;
+            }
+        }
+    }
+}

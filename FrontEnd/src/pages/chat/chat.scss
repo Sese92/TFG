@@ -1,0 +1,16 @@
+page-chat {
+
+    .conversation{
+        padding: 5px;
+        border-bottom: solid 0.2px gray;
+    }
+    .item{
+        margin-left: 20px;
+
+        h2{
+            color: black;
+            font-family: 'Graphik Medium';
+            font-size: 18px;
+        }
+    }
+}

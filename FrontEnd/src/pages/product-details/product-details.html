@@ -1,0 +1,77 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Detalles del producto</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-slides pager>
+      <ion-slide>
+          <img src="assets/imgs/assassins.png">
+      </ion-slide>
+      <ion-slide>
+          <img src="assets/imgs/assassins.png">
+      </ion-slide>
+      <ion-slide>
+          <img src="assets/imgs/assassins.png">
+      </ion-slide>
+        
+      <!--
+      <ion-slide *ngFor="let image of product.images">
+            <img [src]="image" />
+        </ion-slide>
+      -->
+  </ion-slides>
+
+  <ion-grid>
+    <ion-row style="border-bottom: 0.5px solid #cecece">
+      <ion-row style="width: 100%">
+        <ion-col col-9>
+          <p class="productTitle" margin-left margin-right no-margin-top>
+            {{product.name}}
+          </p>
+        </ion-col>
+        <ion-col col-3 style="align-self: flex-end">
+          <p class="price">{{product.amount}} €</p>
+        </ion-col>
+      </ion-row>
+      <ion-row style="width: 100%">
+        <ion-col col-9>
+          <p class="extra" margin-left margin-right no-margin-top>
+            Envío: 0.05€/Km
+          </p>
+        </ion-col>
+        <ion-col col-3 style="align-self: flex-end">
+          <p class="extra" style="text-align: center">+ {{extra}} €</p>
+        </ion-col>
+      </ion-row>
+    </ion-row>
+    <ion-row>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="assets/imgs/user.png">
+        </ion-avatar>
+        <p class="owner">{{ownerName}}</p>
+        <button (click)="chat()" ion-button color="appGreen">Chatear</button>
+      </ion-item>
+    </ion-row>
+    <ion-row style="padding: 5%">
+      <p style="font-family: 'Graphik Regular'; margin: 0%">{{product.description}}</p>
+    </ion-row>
+  </ion-grid>
+
+  <div class="mapDiv">
+    <div #map id="map"></div> 
+  </div>
+
+
+</ion-content>
+
+<ion-footer>
+  <button (click)="makeOffer()" ion-button color="appBlue" large full no-margin>
+    Hacer oferta
+  </button>
+</ion-footer>

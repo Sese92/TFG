@@ -1,0 +1,26 @@
+page-edit-product {
+    .title{
+        font-family: 'Graphik Medium';
+    }
+    .input{
+        padding: 10px;
+        border: solid black 1px;
+        border-radius: 10px;
+    }
+    .text-input{
+        color: black;
+        margin: 0%;
+    }
+    .text-input::placeholder{
+        color: gray;
+    }
+
+    ion-textarea{
+        padding: 10px;
+        height: 100px;
+        .text-input{
+            height: 95%;
+            margin: 0%
+        }
+    }
+}

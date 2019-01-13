@@ -1,0 +1,34 @@
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>Editar Producto</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-grid>
+      <p class="title">
+        Nombre del producto
+      </p>
+      <ion-input [(ngModel)]="productName"></ion-input>
+      <p class="title">
+          Descripción
+      </p>
+      <ion-textarea [(ngModel)]="description"></ion-textarea>
+      <p class="title">
+          Precio inicial
+      </p>
+      <ion-row align-items-center>
+          <ion-input [(ngModel)]="price" style="max-width: 100px"></ion-input>
+          <p class="section" style="margin:0px; margin-left: 5px; font-size: 20px">€</p>
+        </ion-row>
+      </ion-grid>
+  </ion-content>
+  
+  <ion-footer>
+      <button ion-button color="appBlue" large full no-margin>
+        Guardar cambios
+      </button>
+    </ion-footer>

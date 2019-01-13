@@ -1,0 +1,70 @@
+page-products {
+    .header{
+        .toolbar{
+            padding: 0%;
+        }
+    }
+
+    .slides{
+        height: 200px;
+        width: 100%;
+        .swiper-container{
+            background-color: rgba(0, 0, 0, 0.1);
+
+            .swiper-wrapper{
+                .swiper-slide{
+                    .slide-zoom{
+                        height: 100%;
+                        display: contents;
+
+                        img{
+                            max-height: none !important;
+                        }
+                    }
+                }
+            }
+            .swiper-pagination{
+                .swiper-pagination-bullet-active{
+                    background-color: color($colors, appGreen);
+                }
+            }
+        }
+   }
+
+    .pin {
+        display: inline-block;
+    }
+
+    .card {
+        box-shadow: 4px 4px 10px rgb(175, 175, 175);
+        margin-top: 10px;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+
+    }
+
+    .product-description {
+        padding: 8px;
+        border-bottom: 1px solid #eee;
+
+        p{
+            font-family: 'Graphik Medium';
+            color: black;
+        }
+        .price{
+            text-align: right;
+            color: color($colors, appGreen);
+            font-size: 20px;
+            font-family: 'Graphik Bold';
+
+        }
+    }
+
+    .fab{
+        background-color: color($colors, appGreen);
+
+        .icon{
+            font-size: 30px;
+        }
+    }
+}

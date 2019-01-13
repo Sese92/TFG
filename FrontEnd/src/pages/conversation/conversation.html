@@ -1,0 +1,40 @@
+<ion-header>
+
+	<ion-navbar color="hcolor">
+		<ion-title>{{user.displayName}}</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content #content>
+		<div *ngFor="let message of allmessages" class="message-wrapper">
+				<div *ngIf="message.sentby === user.uid">
+					<img class="profile-pic left" src="assets/imgs/user.png" />
+					<div class="chat-bubble left slide-left">
+						<div class="message" [innerHTML]="message.message">
+						</div>
+					</div>
+				</div>
+
+				<div *ngIf="message.sentby != user.uid">
+					<img class="profile-pic right" src="assets/imgs/user.png" />
+					<div class="chat-bubble right slide-right">
+						<div class="message" [innerHTML]="message.message">
+						</div>
+					</div>
+				</div>
+				<div class="cf"></div>
+		
+			</div>
+</ion-content>
+<ion-footer ion-fixed>
+	<ion-toolbar class="no-border" color="white">
+		<ion-input [(ngModel)]="newmessage" placeholder="Escribe tu mensaje..."></ion-input>
+		<ion-buttons end>
+			<button ion-button (click)="addmessage()">
+				<ion-icon name="send" color="appBlue"></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-footer>
