@@ -1,0 +1,18 @@
+page-pickup-completed {
+    .scroll-content{
+        text-align: center;
+    }
+
+    .acceptButton{
+        background-color: transparent;
+        color: black;
+        border: solid 2px black;
+        width: 100%;
+        font-size: 20px;
+        font-weight: bold;   
+    }
+
+    .acceptButton.activated{
+        background-color: orange;
+    }
+}

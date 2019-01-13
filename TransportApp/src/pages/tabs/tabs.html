@@ -1,0 +1,13 @@
+<ion-header>
+        <ion-navbar>
+                <ion-title>{{name}} {{surname}}</ion-title>
+                <ion-icon (click)="logout()" style="font-size: 20px" name="md-log-out"></ion-icon>
+        </ion-navbar>
+</ion-header>
+<ion-content>
+        <ion-tabs tabsPlacement="top">
+                <ion-tab [root]="newRoot" tabTitle="Recogida"></ion-tab>
+                <ion-tab [root]="deliveryRoot" tabTitle="Entrega"></ion-tab>
+                <ion-tab [root]="completedRoot" tabTitle="Completados"></ion-tab>
+        </ion-tabs>
+</ion-content>

@@ -1,0 +1,19 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-icon (click)="close()" style="font-size: 30px; margin-left: 10px" name="md-close"></ion-icon>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid style="height: 100%; justify-content: center">
+      <h1 style="color: orange">Paquete correcto</h1>
+      <img style="width: 100px; align-self: center" src="assets/imgs/package2.png">
+      <h5>Entrega este paquete en la siguiente dirección:</h5>
+      <h3 style="font-weight: bold">{{address}}</h3>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+    <button ion-button class="acceptButton" (click)="close()">Aceptar</button>
+</ion-footer>
