@@ -14,9 +14,21 @@
       <ion-col no-padding col-6 *ngFor="let product of filterList">
           <ion-card class="pin" (click)="cardDetails(product)">
           <ion-slides pager>
-              <ion-slide *ngFor="let image of product.images">
-                  <img [src]="image" />
+              <ion-slide>
+                  <img src="assets/imgs/assassins.png">
               </ion-slide>
+              <ion-slide>
+                  <img src="assets/imgs/assassins.png">
+              </ion-slide>
+              <ion-slide>
+                  <img src="assets/imgs/assassins.png">
+              </ion-slide>
+                
+              <!--
+              <ion-slide *ngFor="let image of product.images">
+                    <img [src]="image" />
+                </ion-slide>
+              -->
             </ion-slides>
             <div class="product-description">
                 <p>{{ product.name }}</p>

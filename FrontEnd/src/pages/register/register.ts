@@ -34,7 +34,7 @@ export class RegisterPage {
       repeatPassword: ["", Validators.compose([Validators.required, Validators.minLength(6)])],
       name: ["", Validators.compose([Validators.required, Validators.pattern('[A-Za-z ]+')])],
       surname: ["", Validators.pattern('[A-Za-z ]+')],
-      phone: ["", Validators.compose([Validators.required, Validators.pattern('[0-9]+')])]
+      phone: ["",  Validators.pattern('[0-9]+')]
     });
   }
 

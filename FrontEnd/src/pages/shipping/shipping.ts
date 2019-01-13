@@ -1,3 +1,4 @@
+import { ViewOfferPage } from './../view-offer/view-offer';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ShipmentDetailsPage } from './shipment-details/shipment-details';
@@ -16,8 +17,8 @@ export class ShippingPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.section = 'made';
 
-    this.made = [{"title": "Bicicleta"}, {"title": "Televisión"}, {"title": "Balón de fútbol"}]
-    this.received = [{"title": "Bicicleta"}, {"title": "Televisión"}, {"title": "Balón de fútbol"}]
+    this.made = [{"title": "Bicicleta"}]
+    this.received = [{"title": "Bicicleta"}]
 
   }
 
@@ -26,7 +27,8 @@ export class ShippingPage {
   }
 
   details(shipment){
-    this.navCtrl.push(ShipmentDetailsPage);
+    this.navCtrl.push(ViewOfferPage)
+    //this.navCtrl.push(ShipmentDetailsPage);
   }
 
 }

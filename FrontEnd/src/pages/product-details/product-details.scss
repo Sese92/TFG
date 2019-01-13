@@ -48,8 +48,8 @@ page-product-details {
              }
              .swiper-pagination{
                  .swiper-pagination-bullet-active{
-                     background-color: #488aff;
-                 }
+                    background-color: color($colors, appGreen);
+                }
              }
          }
     }

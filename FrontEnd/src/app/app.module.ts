@@ -1,3 +1,4 @@
+import { ViewOfferPage } from './../pages/view-offer/view-offer';
 import { EditProfilePage } from './../pages/edit-profile/edit-profile';
 import { MakeOfferPage } from './../pages/make-offer/make-offer';
 import { FIREBASE_CONFIG } from './app.firebase.config';
@@ -33,6 +34,7 @@ import { Camera } from '@ionic-native/camera'
 import { ApiClientService } from '../client';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
+import { EditProductPage } from '../pages/edit-product/edit-product';
 
 @NgModule({
   declarations: [
@@ -43,8 +45,10 @@ import { IonicStorageModule } from '@ionic/storage';
     TabsPage,
     ProductsPage,
     NewProductPage,
+    EditProductPage,
     ShippingPage,
     ShipmentDetailsPage,
+    ViewOfferPage,
     ChatPage,
     ConversationPage,
     ProfilePage,
@@ -74,8 +78,10 @@ import { IonicStorageModule } from '@ionic/storage';
     TabsPage,
     ProductsPage,
     NewProductPage,
+    EditProductPage,
     ShippingPage,
     ShipmentDetailsPage,
+    ViewOfferPage,
     ChatPage,
     ConversationPage,
     ProfilePage,

@@ -29,12 +29,24 @@
     </ion-row>
     <ion-col style="overflow-y: auto">
         <ion-row>
-            <ion-col no-padding col-6 *ngFor="let product of products">
+            <ion-col no-padding col-6 *ngFor="let product of products" (click)="editProduct()">
                 <ion-card class="pin">
                 <ion-slides pager>
-                    <ion-slide *ngFor="let image of product.images">
+                  <ion-slide>
+                      <img src="assets/imgs/assassins.png">
+                  </ion-slide>
+                  <ion-slide>
+                      <img src="assets/imgs/assassins.png">
+                  </ion-slide>
+                  <ion-slide>
+                      <img src="assets/imgs/assassins.png">
+                  </ion-slide>
+                    
+                  <!--
+                  <ion-slide *ngFor="let image of product.images">
                         <img [src]="image" />
                     </ion-slide>
+                  -->
                   </ion-slides>
                   <div class="product-description">
                       <p>{{ product.name }}</p>

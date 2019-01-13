@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { EditProfilePage } from '../edit-profile/edit-profile';
+import firebase from 'firebase'
+import { EditProductPage } from '../edit-product/edit-product';
+
 
 @IonicPage()
 @Component({
@@ -14,6 +17,7 @@ export class ProfilePage {
   public name;
   public surname;
   public products;
+
 
   constructor(public navCtrl: NavController, public events: Events, public api: ApiClientService, public storage: Storage) {
   }
@@ -27,6 +31,19 @@ export class ProfilePage {
       this.surname = this.user.surname;
       this.api.getMyProducts(this.user.userId).subscribe((result) => {
         this.products = result.body;
+        var storage = firebase.storage().ref('/Products/');
+        
+        for (let i = 0; i < this.products.length; i++) {
+          this.products[i]["images"] = new Array();
+          console.log(this.products[i])
+          var pathReference = storage.child((this.products[i].productId).toString() + "/0.png");
+          console.log(pathReference)
+          pathReference.getDownloadURL().then(function(url) {
+            console.log(url);
+            
+            console.log(this.products[i])
+        });
+      }
       },
       error => {
         console.log(error);
@@ -36,6 +53,10 @@ export class ProfilePage {
 
   edit(){
     this.navCtrl.push(EditProfilePage)
+  }
+
+  editProduct(){
+    this.navCtrl.push(EditProductPage);
   }
 
   logout(){

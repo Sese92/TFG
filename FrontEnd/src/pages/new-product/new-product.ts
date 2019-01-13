@@ -1,6 +1,6 @@
 import { ApiClientService } from './../../client/index';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ViewController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, AlertController, LoadingController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Camera, CameraOptions } from '@ionic-native/camera'
 import firebase from 'firebase'
@@ -19,14 +19,13 @@ export class NewProductPage {
 
   public user;
   public productID;
-  public imagesArray;
   public contador = 0;
 
   public myPhotosRef;
   public myPhoto;
   public myPhotoURL;
 
-  constructor(private camera: Camera, public storage: Storage, public navCtrl: NavController, public alertCtrl: AlertController, public formBuilder: FormBuilder, public viewCtrl: ViewController,
+  constructor(private camera: Camera, public loadingCtrl: LoadingController, public storage: Storage, public navCtrl: NavController, public alertCtrl: AlertController, public formBuilder: FormBuilder, public viewCtrl: ViewController,
     public api: ApiClientService) {
     this.myForm = this.createMyForm();
     this.myPhotosRef = firebase.storage().ref('/Products/');
@@ -34,7 +33,6 @@ export class NewProductPage {
 
   ionViewDidLoad() {
     this.contador = 0;
-    this.imagesArray = new Array();
     console.log('ionViewDidLoad NewProductPage');
     this.storage.get('blockchainUser').then((user) => {
       this.user = user[0]
@@ -60,6 +58,10 @@ export class NewProductPage {
   }
 
   uploadProduct(){
+    let loading = this.loadingCtrl.create({
+      content: "Subiendo producto..."
+    })
+    loading.present();
     this.saveData();
     let product = {
         "$class": "org.tfg.model.UploadProduct",
@@ -74,11 +76,31 @@ export class NewProductPage {
       result => {
         console.log(product)
         console.log(result);
+        loading.dismiss()
+        this.productUploaded();
+        
       },
       error => {
         console.log(error);
+        loading.dismiss()
       }
     )
+  }
+
+  productUploaded(){
+    let alert = this.alertCtrl.create({
+      title: "Producto subido",
+      subTitle: "El producto ha sido añadido, puedes verlo y editarlo en la pantalla de perfil",
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            this.viewCtrl.dismiss();
+          }
+        },
+      ]
+    })
+    alert.present();
   }
 
   close(){
@@ -91,7 +113,7 @@ export class NewProductPage {
       subTitle: "Elige el modo con el que añadir la nueva imagen",
       buttons: [
         {
-          text: 'Foto',
+          text: 'Galería',
           handler: () => {
             this.selectPhoto();
           }
@@ -137,7 +159,7 @@ export class NewProductPage {
   }
 
   private uploadPhoto(): void {
-    this.myPhotosRef.child(this.productID).child((this.imagesArray.length + 1) + ".png")
+    this.myPhotosRef.child((this.productID).toString()).child((this.contador).toString() + ".png")
       .putString(this.myPhoto, 'base64', { contentType: 'image/png' })
       .then((savedPicture) => {
         this.myPhotoURL = savedPicture.downloadURL;
