@@ -7,29 +7,20 @@
 
 </ion-header>
 
-
 <ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
   <ion-grid>
     <ion-row>
       <ion-col no-padding col-6 *ngFor="let product of filterList">
           <ion-card class="pin" (click)="cardDetails(product)">
-          <ion-slides pager>
-              <ion-slide>
-                  <img src="assets/imgs/assassins.png">
-              </ion-slide>
-              <ion-slide>
-                  <img src="assets/imgs/assassins.png">
-              </ion-slide>
-              <ion-slide>
-                  <img src="assets/imgs/assassins.png">
-              </ion-slide>
-                
-              <!--
-              <ion-slide *ngFor="let image of product.images">
-                    <img [src]="image" />
+            <ion-slides pager>
+                <ion-slide *ngFor="let image of product.images">
+                    <img [src]="image">
                 </ion-slide>
-              -->
-            </ion-slides>
+                </ion-slides>
             <div class="product-description">
                 <p>{{ product.name }}</p>
                 <p class="price">{{product.amount}} €</p>

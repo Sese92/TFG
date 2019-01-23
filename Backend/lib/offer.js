@@ -40,6 +40,7 @@ function AcceptOffer(offerInfo) {
     if (offer.status == "DONE") {
         offer.status = "ACCEPTED"
         offer.product.status = "SOLD"
+      	offer.acceptedDate = offerInfo.acceptedDate
 
         if (offer.offerType == "WITHOUTSHIPPING") {
             return getAssetRegistry('org.tfg.model.Offer')
@@ -117,7 +118,7 @@ function RejectOffer(offerInfo) {
     var offer = offerInfo.offer;
     if (offer.status = "DONE") {
         offer.status = "REJECTED"
-        offer.product.rejectedDate = offerInfo.rejectedDate
+        offer.rejectedDate = offerInfo.rejectedDate
 
         return getAssetRegistry('org.tfg.model.Offer')
             .then(function (offerAsset) {

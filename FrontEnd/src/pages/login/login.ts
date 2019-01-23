@@ -41,8 +41,6 @@ export class LoginPage {
       toast.present();
     }
     else {
-
-
       this.authservice.login(user).then((res: any) => {
         let loading = this.loadingCtrl.create({
           content: "Iniciando sesión..."
@@ -52,7 +50,7 @@ export class LoginPage {
           "$class": "org.tfg.model.Login",
           "user": "resource:org.tfg.model.UserParticipant#" + this._auth.auth.currentUser.uid
         }
-        this.api.Login(userInformation).subscribe(
+        this.api.login(userInformation).subscribe(
           result => {
             console.log(result);
             this.api.getUserById(this._auth.auth.currentUser.uid).subscribe(
@@ -64,9 +62,7 @@ export class LoginPage {
               },
               error => {
                 console.log(error);
-              }
-            )
-
+              });
           },
           error => {
             console.log(error);
@@ -79,7 +75,6 @@ export class LoginPage {
           console.log(err.code);
         })
     }
-
   }
 
   toast() {

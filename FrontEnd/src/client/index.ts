@@ -5,8 +5,8 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class ApiClientService {
 
-  //private domain = 'http://192.168.1.35:3000';
-  private domain = 'http://localhost:3000';
+  private domain = 'http://192.168.1.47:3000';
+  //private domain = 'http://localhost:3000';
 
   constructor(private http: HttpClient, @Optional() @Inject('domain') domain: string) {
     if (domain) {
@@ -21,8 +21,7 @@ export class ApiClientService {
     return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(user));
   }
 
-
-  public Login(user: any): Observable<HttpResponse<any>> {
+  public login(user: any): Observable<HttpResponse<any>> {
     let uri = `/api/Login`;
     let headers = new HttpHeaders();
     let params = new HttpParams();
@@ -43,8 +42,29 @@ export class ApiClientService {
     return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(product));
   }
 
+  public updateProduct(product:any):Observable<HttpResponse<any>> {
+    let uri = `/api/UpdateProduct`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams();
+    return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(product));
+  }
+
   public makeOffer(offer:any):Observable<HttpResponse<any>> {
     let uri = `/api/MakeOffer`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams();
+    return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(offer));
+  }
+
+  public acceptOffer(offer:any):Observable<HttpResponse<any>> {
+    let uri = `/api/AcceptOffer`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams();
+    return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(offer));
+  }
+
+  public rejectOffer(offer:any):Observable<HttpResponse<any>> {
+    let uri = `/api/RejectOffer`;
     let headers = new HttpHeaders();
     let params = new HttpParams();
     return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(offer));
@@ -78,6 +98,76 @@ export class ApiClientService {
     let headers = new HttpHeaders();
     let params = new HttpParams().set('owner','resource:org.tfg.model.UserParticipant#'+owner);
     return this.sendRequest<any>('get', uri, headers, params, null);  
+  }
+
+  public getProductById(id:string): Observable<HttpResponse<any>> {
+    let uri = `/api/queries/GetProductById`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams();
+    return this.sendRequest<any>('get', uri, headers, params.set('productId',id), null);
+  }
+
+  public getAllHeadQuarters(): Observable<HttpResponse<any>> {
+    let uri = `/api/queries/GetAllHeadQuarters`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams();
+    return this.sendRequest<any>('get', uri, headers, params, null);
+  }
+
+  public getAllCarriersByHeadquarter(id:string): Observable<HttpResponse<any>> {
+    let uri = `/api/queries/GetAllCarriersByHeadquarter`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams().set('headquarter', 'resource:org.tfg.model.HeadQuarter#'+id);
+    return this.sendRequest<any>('get', uri, headers, params, null);
+  }
+
+  public getMyOffers(product: string): Observable<HttpResponse<any>> {
+    let uri = `/api/queries/GetMyOffers`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams().set('product','resource:org.tfg.model.Product#'+product);
+    return this.sendRequest<any>('get', uri, headers, params, null);  
+  }
+
+  public getOffersDone(buyer: string): Observable<HttpResponse<any>> {
+    let uri = `/api/queries/GetOffersDone`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams().set('buyer','resource:org.tfg.model.UserParticipant#'+buyer);
+    return this.sendRequest<any>('get', uri, headers, params, null);  
+  }
+
+  public getOffersRejected(buyer: string): Observable<HttpResponse<any>> {
+    let uri = `/api/queries/GetOffersRejected`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams().set('buyer','resource:org.tfg.model.UserParticipant#'+buyer);
+    return this.sendRequest<any>('get', uri, headers, params, null);  
+  }
+
+  public getOfferById(id:string): Observable<HttpResponse<any>> {
+    let uri = `/api/queries/GetOfferById`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams();
+    return this.sendRequest<any>('get', uri, headers, params.set('offerId',id), null);
+  }
+
+  public getOrderById(id:string): Observable<HttpResponse<any>> {
+    let uri = `/api/queries/GetOrderById`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams();
+    return this.sendRequest<any>('get', uri, headers, params.set('orderId',id), null);
+  }
+
+  public getOrdersDone(buyer: string): Observable<HttpResponse<any>> {
+    let uri = `/api/queries/GetOrdersDone`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams().set('buyer','resource:org.tfg.model.UserParticipant#'+buyer);
+    return this.sendRequest<any>('get', uri, headers, params, null);  
+  }
+
+  public getMyOrders(product: string): Observable<HttpResponse<any>> {
+    let uri = `/api/queries/GetMyOrders`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams().set('product','resource:org.tfg.model.Product#'+product);
+    return this.sendRequest<any>('get', uri, headers, params, null);
   }
 
 

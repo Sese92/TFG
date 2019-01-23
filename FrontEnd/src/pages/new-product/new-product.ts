@@ -2,7 +2,7 @@ import { ApiClientService } from './../../client/index';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, ViewController, AlertController, LoadingController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Camera, CameraOptions } from '@ionic-native/camera'
+import { Camera } from '@ionic-native/camera'
 import firebase from 'firebase'
 import { Storage } from '@ionic/storage';
 
@@ -70,7 +70,8 @@ export class NewProductPage {
         "name": this.productName,
         "description": this.description,
         "amount": this.price,
-        "uploadDate": new Date()
+        "uploadDate": new Date(),
+        "numberOfImages": this.contador
     }
     this.api.uploadProduct(product).subscribe(
       result => {
@@ -78,13 +79,11 @@ export class NewProductPage {
         console.log(result);
         loading.dismiss()
         this.productUploaded();
-        
       },
       error => {
         console.log(error);
         loading.dismiss()
-      }
-    )
+      });
   }
 
   productUploaded(){

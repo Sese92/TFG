@@ -12,23 +12,23 @@
       <p class="title">
         Nombre del producto
       </p>
-      <ion-input [(ngModel)]="productName"></ion-input>
+      <ion-input type="text" [(ngModel)]="productName"></ion-input>
       <p class="title">
           Descripción
       </p>
-      <ion-textarea [(ngModel)]="description"></ion-textarea>
+      <ion-textarea type="text" [(ngModel)]="description"></ion-textarea>
       <p class="title">
           Precio inicial
       </p>
       <ion-row align-items-center>
-          <ion-input [(ngModel)]="price" style="max-width: 100px"></ion-input>
+          <ion-input type="number" [(ngModel)]="price" style="max-width: 100px"></ion-input>
           <p class="section" style="margin:0px; margin-left: 5px; font-size: 20px">€</p>
         </ion-row>
       </ion-grid>
   </ion-content>
   
   <ion-footer>
-      <button ion-button color="appBlue" large full no-margin>
+      <button ion-button color="appBlue" large full no-margin (click)="updateProduct()">
         Guardar cambios
       </button>
     </ion-footer>

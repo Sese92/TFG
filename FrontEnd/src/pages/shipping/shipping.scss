@@ -5,6 +5,8 @@ page-shipping {
     .shipment{
         padding: 5px;
         border-bottom: solid 0.2px gray;
+        border-top: solid 0.2px gray;
+
     }
     .productName{
         margin: 0%;
@@ -17,6 +19,13 @@ page-shipping {
         font-family: 'Graphik Regular';
         color: gray;
         margin: 0%;
+    }
+
+    .type{
+        font-size: 18px;
+        color: color($colors, appBlue);
+        font-family: 'Graphik Medium';
+        text-align: center;
     }
 
 }

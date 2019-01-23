@@ -1,4 +1,7 @@
 <ion-content padding>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
     <ion-row *ngFor="let order of packageList" style="border-bottom: 1px solid #bebebe" (click)="scanQR(order)">
         <ion-col col-2 style="align-self: center; padding: 2%">
             <img src="assets/imgs/package.png">

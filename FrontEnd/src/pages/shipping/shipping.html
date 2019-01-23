@@ -18,17 +18,53 @@
         Ventas
       </ion-segment-button>
     </ion-segment>
+    
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
 
     <ion-grid style="height: 95%; overflow-y: auto" *ngIf="section === 'made'">
       <ion-col no-padding>
-          <ion-row class="shipment" *ngFor="let shipment of made" (click)="details(shipment)">
+          <p class="type">Ofertas</p>
+          <ion-row class="shipment" *ngFor="let offer of offersDone" (click)="shipment(offer)">
               <ion-col col-10 no-padding>
                   <ion-item>
                       <ion-avatar item-start>
                         <img src="assets/imgs/user.png">
                       </ion-avatar>
-                      <p class="productName">Figura Assassins Creed</p>
-                      <p class="userName">Jose Jimenez</p>
+                      <p class="productName">{{offer.productName}}</p>
+                      <p class="userName">{{offer.userName}} {{offer.userSurname}}</p>
+                    </ion-item>
+              </ion-col>
+                <ion-col col-2 no-padding style="align-self: center; text-align: center">
+                  <ion-icon style="font-size: 20px" name="ios-arrow-forward-outline"></ion-icon>
+                </ion-col>
+            </ion-row>
+            <ion-row class="shipment" style="background-color: #f7aaaa" *ngFor="let offer of offersRejected" (click)="shipment(offer)">
+              <ion-col col-10 no-padding>
+                  <ion-item>
+                      <ion-avatar item-start>
+                        <img src="assets/imgs/user.png">
+                      </ion-avatar>
+                      <p class="productName">{{offer.productName}}</p>
+                      <p class="userName">{{offer.userName}} {{offer.userSurname}}</p>
+                    </ion-item>
+              </ion-col>
+                <ion-col col-2 no-padding style="align-self: center; text-align: center">
+                  <ion-icon style="font-size: 20px" name="ios-arrow-forward-outline"></ion-icon>
+                </ion-col>
+            </ion-row>
+
+            <hr>
+            <p class="type">Ordenes</p>
+            <ion-row class="shipment" *ngFor="let order of ordersDone" (click)="shipment(order)">
+              <ion-col col-10 no-padding>
+                  <ion-item>
+                      <ion-avatar item-start>
+                        <img src="assets/imgs/user.png">
+                      </ion-avatar>
+                      <p class="productName">{{order.productName}}</p>
+                      <p class="userName">{{order.userName}} {{order.userSurname}}</p>
                     </ion-item>
               </ion-col>
                 <ion-col col-2 no-padding style="align-self: center; text-align: center">
@@ -41,14 +77,32 @@
 
     <ion-grid style="height: 95%; overflow-y: auto" *ngIf="section === 'received'">
         <ion-col no-padding>
-        <ion-row class="shipment" *ngFor="let shipment of received" (click)="details(shipment)">
+        <p class="type">Ofertas</p>
+        <ion-row class="shipment" *ngFor="let offer of myOffers" (click)="details(offer)">
             <ion-col col-10 no-padding>
                 <ion-item>
                     <ion-avatar item-start>
                       <img src="assets/imgs/user.png">
                     </ion-avatar>
-                    <p class="productName">Figura Assassins Creed</p>
-                    <p class="userName">Laura Fraile</p>
+                    <p class="productName">{{offer.productName}}</p>
+                    <p class="userName">{{offer.userName}} {{offer.userSurname}}</p>
+                  </ion-item>
+            </ion-col>
+              <ion-col col-2 no-padding style="align-self: center; text-align: center">
+                <ion-icon style="font-size: 20px" name="ios-arrow-forward-outline"></ion-icon>
+              </ion-col>
+          </ion-row>
+
+          <hr>
+          <p class="type">Ordenes</p>
+          <ion-row class="shipment" *ngFor="let order of myOrders" (click)="shipment(order)">
+            <ion-col col-10 no-padding>
+                <ion-item>
+                    <ion-avatar item-start>
+                      <img src="assets/imgs/user.png">
+                    </ion-avatar>
+                    <p class="productName">{{order.productName}}</p>
+                    <p class="userName">{{order.userName}} {{order.userSurname}}</p>
                   </ion-item>
             </ion-col>
               <ion-col col-2 no-padding style="align-self: center; text-align: center">

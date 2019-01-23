@@ -53,11 +53,10 @@ asset Product identified by productId{
   o String name
   o String description
   o Double amount
-  o String uploadDate
-  o String acceptedDate optional
-  o String rejectedDate optional
-  o String receivedDate optional
-  o String finishedDate optional
+  o DateTime uploadDate
+  o DateTime receivedDate optional
+  o DateTime finishedDate optional
+  o Integer numberOfImages
   //Photos at firebase
 }
 
@@ -69,7 +68,8 @@ asset Offer identified by offerId{
   o Double amount
   o OfferStatus status
   o DateTime offerDate
-  o DateTime rejectDate optional
+  o DateTime acceptedDate optional
+  o DateTime rejectedDate optional
   o Double shippingPrice
 }
 
@@ -118,7 +118,6 @@ transaction UpdateProfile{
     o String name 
     o String surname  
     o String numberPhone
-    o Address address
 }
 
 transaction UploadProduct{
@@ -128,6 +127,7 @@ transaction UploadProduct{
     o String description
     o Double amount
     o DateTime uploadDate
+    o Integer numberOfImages
     //Photos at firebase
 }
 
@@ -139,7 +139,7 @@ transaction UpdateProduct{
 }
 
 transaction MakeOffer{
-	  --> Product product
+	--> Product product
     --> UserParticipant buyer
     o DateTime offerDate
     o Double amount
@@ -151,20 +151,20 @@ transaction MakeOffer{
 transaction AcceptOffer{
   --> Offer offer
   --> Carrier carrier
-  o String acceptedDate
+  o DateTime acceptedDate
 }
 
 transaction RejectOffer{
   --> Offer offer
-  o String rejectedDate
+  o DateTime rejectedDate
 }
 
 transaction PickUpProduct{
   --> Order order
-  o String receivedDate
+  o DateTime receivedDate
 }
 
 transaction DeliverProduct{
   --> Order order
-  o String finishedDate
+  o DateTime finishedDate
 }

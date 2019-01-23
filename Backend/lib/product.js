@@ -17,7 +17,8 @@ function UploadProduct(productInfo) {
               		product.name = productInfo.name;
               		product.description = productInfo.description;
               		product.amount = productInfo.amount;
-              		product.uploadDate = productInfo.uploadDate;
+                    product.uploadDate = productInfo.uploadDate;
+                    product.numberOfImages = productInfo.numberOfImages;
 
                     return assertRegistryProduct.add(product);
                 })

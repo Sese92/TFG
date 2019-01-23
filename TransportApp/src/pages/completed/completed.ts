@@ -33,13 +33,15 @@ export class CompletedPage {
           for (let i = 0; i < orders.length; i++) {
             let product = (orders[i].product).split('#')
             let productId = product[1]
-//QUERY
-                var productName = "Figura Assassins Creed"
+            this.api.getProductById(productId).subscribe(
+              result => {
+                var productName = result.body[0].name;
                 let order = {
                   "productName": productName,
                 }
                 this.packageList.push(order);
-             
+              }
+            )
           }
           loading.dismiss()
         }

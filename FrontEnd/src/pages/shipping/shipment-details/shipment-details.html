@@ -15,54 +15,64 @@
         <div class="dotCompleted"></div>
       </ion-col>
       <ion-col col-10 no-padding>
-        <p class="text">Oferta realizada el 10/12/2018</p>
+        <p class="text">Oferta realizada el {{offerDate}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-2 no-padding>
-        <div class="lineCompleted"></div>
+        <div *ngIf="type == 'offer' && status == 'REJECTED'" class="lineCompleted"></div>
+        <div *ngIf="type == 'order'" class="lineCompleted"></div>
+        <div *ngIf="type == 'offer' && status == 'DONE'" class="lineIncompleted"></div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 no-padding>
+        <div *ngIf="type == 'order'" class="dotCompleted"></div>
+        <div *ngIf="type == 'offer' && status == 'REJECTED'" class="dotCompleted" style="background-color: red"></div>
+        <div *ngIf="type == 'offer' && status == 'DONE'" class="dotIncompleted"></div>
+      </ion-col>
+      <ion-col col-10 no-padding>
+        <p *ngIf="type == 'offer' && status == 'REJECTED'" class="text">Oferta rechazada el {{offerRejectedDate}}</p>
+        <p *ngIf="type == 'order'" class="text">Oferta aceptada el {{offerAcceptedDate}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2 no-padding>
+        <div *ngIf="type == 'order' && status == 'WAITING'" class="lineIncompleted"></div>
+        <div *ngIf="type == 'order' && status != 'WAITING'" class="lineCompleted"></div>
       </ion-col> 
     </ion-row>
     <ion-row>
       <ion-col col-2 no-padding>
-        <div class="dotCompleted"></div>
+        <div *ngIf="type == 'order' && status != 'WAITING'" class="dotCompleted"></div>
+        <div *ngIf="type == 'order' && status == 'WAITING'" class="dotIncompleted"></div>
       </ion-col>
       <ion-col col-10 no-padding>
-        <p class="text">Oferta aceptada el 13/12/2018</p>
+        <p *ngIf="type == 'order' && status != 'WAITING'" class="text">Producto recogido el {{pickupDate}}</p>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-2 no-padding>
-        <div class="lineCompleted"></div>
-      </ion-col> 
-    </ion-row>
-    <ion-row>
-      <ion-col col-2 no-padding>
-        <div class="dotCompleted"></div>
-      </ion-col>
-      <ion-col col-10 no-padding>
-        <p class="text">Producto recogido el 15/12/2018</p>
+        <div *ngIf="type == 'order' && status != 'RECEIVED'" class="lineIncompleted"></div>
+        <div *ngIf="type == 'order' && status == 'RECEIVED'" class="lineCompleted"></div>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col col-2 no-padding>
-        <div class="lineIncompleted"></div>
-      </ion-col> 
-    </ion-row>
-    <ion-row>
-      <ion-col col-2 no-padding>
-        <div class="dotIncompleted"></div>
+          <div *ngIf="type == 'order' && status != 'RECEIVED'" class="dotIncompleted"></div>
+          <div *ngIf="type == 'order' && status == 'RECEIVED'" class="dotCompleted"></div>
       </ion-col>
       <ion-col col-10 no-padding>
-        <p class="text">Entrega</p>
+        <p *ngIf="type == 'order' && status == 'RECEIVED'" class="text">Producto entregado el {{deliverDate}}</p>
       </ion-col>
     </ion-row>
     
-    <ion-row style="margin-top: 20px" align-items-center>
+    <ion-row *ngIf="type == 'order'" style="margin-top: 20px" align-items-center>
       <p class="qrText">
         Muestra este código al transportista cuando lo requiera
       </p>
       <ngx-qrcode [qrc-value]="qrText"></ngx-qrcode>
     </ion-row>
+
   </ion-grid>
 </ion-content>

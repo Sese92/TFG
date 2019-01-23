@@ -25,6 +25,19 @@ query GetProductById{
           WHERE (productId ==_$productId)
 }
 
+query GetAllHeadQuarters{
+  description: "Get all the headquarters"
+  statement: 
+      SELECT org.tfg.model.HeadQuarter
+}
+
+query GetAllCarriersByHeadquarter{
+  description: "Get all the carrier of a headquarter"
+  statement: 
+      SELECT org.tfg.model.Carrier
+  		WHERE(headquarter == _$headquarter)
+}
+
 query GetUserById{
   description: "Select the especific user"
   statement: 
@@ -53,6 +66,13 @@ query GetOffersRejected{
           WHERE (buyer ==_$buyer AND status =="REJECTED")
 }
 
+query GetOfferById{
+  description: "Select the especific offer"
+  statement: 
+      SELECT org.tfg.model.Offer
+          WHERE (offerId ==_$offerId)
+}
+
 query GetOrdersDone{
   description: "Select all the orders of products that I have bought"
   statement: 
@@ -66,7 +86,6 @@ query GetMyOrders{
       SELECT org.tfg.model.Order
           WHERE (product ==_$product)
 }
-
 
 /*--------Falcon APP-----------*/
 

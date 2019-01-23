@@ -43,8 +43,9 @@ export class NewPage {
                     var sellerAddress = result1.body[0].address.address;
                     let product = (orders[i].product).split('#')
                     let productId = product[1]
-//QUERY
-                        var productName = "Figura Assassins Creed"
+                    this.api.getProductById(productId).subscribe(
+                      result => {
+                        var productName = result.body[0].name;
                         let order = {
                           "sellerAddress": sellerAddress,
                           "buyerAddress": buyerAddress,
@@ -54,8 +55,8 @@ export class NewPage {
                         }
                         this.packageList.push(order);
                         console.log(this.packageList)
-                      
-                    
+                      }
+                    )
                   }
                 )
               },
@@ -75,6 +76,62 @@ export class NewPage {
     })
   }
 
+  doRefresh(refresher){
+    this.packageList = new Array();
+    console.log('ionViewDidLoad NewPage');
+    this.storage.get('carrierInfo').then((carrier) => {
+      let carrierInfo = carrier[0]
+      let carrierID = carrierInfo.carrierId;
+      this.api.getOrdersByStatusAndCarrierId(carrierID, 'WAITING').subscribe(
+        result => {
+          let orders = result.body;
+          console.log(orders)
+          for (let i = 0; i < orders.length; i++) {
+            let buyer = (orders[i].buyer).split('#')
+            let buyerId = buyer[1]
+            let seller = (orders[i].seller).split('#')
+            let sellerId = seller[1]
+            this.api.getUserById(buyerId).subscribe(
+              result => {
+                var buyerAddress = result.body[0].address.address;
+                this.api.getUserById(sellerId).subscribe(
+                  result1 => {
+                    var sellerAddress = result1.body[0].address.address;
+                    let product = (orders[i].product).split('#')
+                    let productId = product[1]
+                    this.api.getProductById(productId).subscribe(
+                      result => {
+                        var productName = result.body[0].name;
+                        let order = {
+                          "sellerAddress": sellerAddress,
+                          "buyerAddress": buyerAddress,
+                          "productName": productName,
+                          "productID": productId,
+                          "orderID": orders[i].orderId
+                        }
+                        this.packageList.push(order);
+                        console.log(this.packageList)
+                      }
+                    )
+                  }
+                )
+              },
+              error => {
+                console.log(error);
+                refresher.complete();
+              }
+            )
+          }
+          refresher.complete()
+        },
+        error => {
+          console.log(error);
+          refresher.complete();
+        }
+      )
+    })
+  }
+
   scanQR(p){
     let loading = this.loadingCtrl.create({
       content: "Cargando..."
@@ -86,7 +143,8 @@ export class NewPage {
       if(barcodeData.text == p.productID){
         let order = {
           "$class": "org.tfg.model.PickUpProduct",
-          "order": "resource:org.tfg.model.Order#" + p.orderID
+          "order": "resource:org.tfg.model.Order#" + p.orderID,
+          "receivedDate": new Date()
         }
         this.api.pickUpProduct(order).subscribe(
           result => {
